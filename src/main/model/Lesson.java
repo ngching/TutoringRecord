@@ -9,7 +9,7 @@ public class Lesson {
     private LocalDateTime ending; // the ending time of the lesson
     private String subject; // the subject taught in the lesson
     private boolean paymentStatus; // the payment status of the lesson
-    
+
     // REQUIRES: ending is after starting
     // EFFECTS: constructs an unpaid lesson with the given date, time, and subject
     public Lesson(LocalDateTime starting, LocalDateTime ending, String subject) {
@@ -21,13 +21,13 @@ public class Lesson {
 
     // MODIFIES: this
     // EFFECTS: marks the lesson as paid
-    public void markedAsPaid() {
+    public void markAsPaid() {
         this.paymentStatus = true;
     }
 
     // MODIFIES: this
     // EFFECTS: marks the lesson as unpaid
-    public void markedAsUnpaid() {
+    public void markAsUnpaid() {
         this.paymentStatus = false;
     }
 

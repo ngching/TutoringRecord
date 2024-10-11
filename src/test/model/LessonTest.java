@@ -28,18 +28,18 @@ public class LessonTest {
     }
 
     @Test
-    void testMarkedAsPaid() {
-        testLesson.markedAsPaid();
+    void testMarkAsPaid() {
+        testLesson.markAsPaid();
         assertTrue(testLesson.getPaymentStatus());
-        testLesson.markedAsPaid();
+        testLesson.markAsPaid();
         assertTrue(testLesson.getPaymentStatus());
     }
 
     @Test
-    void testMarkedAsUnpaid() {
-        testLesson.markedAsUnpaid();
+    void testMarkAsUnpaid() {
+        testLesson.markAsUnpaid();
         assertFalse(testLesson.getPaymentStatus());
-        testLesson.markedAsUnpaid();
+        testLesson.markAsUnpaid();
         assertFalse(testLesson.getPaymentStatus());
     }
 }
