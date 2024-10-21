@@ -20,3 +20,5 @@ As a part-time tutor who work with several students at the same time, I find it 
 - As a user, I want to be able to remove a student from my tutoring record
 - As a user, I want to be able to mark a student's lesson as paid in my record
 - As a user, I want to be able to select a student in my record, and view the student's tutoring record (past lessons) in detail
+- As a user, I want to have the option to save my tutoring record to file on the main menu
+- As a user, I want to have the option to load my tutoring record from file on the main menu
