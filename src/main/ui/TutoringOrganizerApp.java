@@ -1,5 +1,7 @@
 package ui;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,23 +9,32 @@ import java.util.Scanner;
 import model.Lesson;
 import model.Student;
 import model.TutoringRecord;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 // A tutoring organizer appliation that allows users to record their students and their tutoring
 // hours with each students
 public class TutoringOrganizerApp {
-
+    private static final String JSON_STORE = "./data/tutoringRecord.json";
     private Student selectedStudent;
     private TutoringRecord students;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private Scanner input;
 
-    // EFFECTS: runs the tutoring organizer application
-    public TutoringOrganizerApp() {
+    // code based on the sample (JsonSeriallizationDemo)
+    // EFFECTS: contructs tutor record and runs the tutoring organizer application
+    public TutoringOrganizerApp() throws FileNotFoundException {
+        input = new Scanner(System.in);
+        students = new TutoringRecord("My Tutoring Record");
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runOrganizer();
     }
 
+    // code based on TellerApp
     // MODIFIES: this
     // EFFECTS: processes user input
-    // code based on TellerApp
     private void runOrganizer() {
         boolean keepRunning = true;
         String command = null;
@@ -54,7 +65,7 @@ public class TutoringOrganizerApp {
     // EFFECTS: initializes the applcation with starting values (empty list of
     // students)
     private void init() {
-        this.students = new TutoringRecord();
+        // this.students = new TutoringTimetable();
         this.selectedStudent = null;
         this.input = new Scanner(System.in);
     }
@@ -65,6 +76,8 @@ public class TutoringOrganizerApp {
         System.out.println("\ta: Add a student");
         System.out.println("\ts: View all students by their names");
         System.out.println("\tl: View all lessons for all students in the list");
+        System.out.println("\tsave: save tutoring record to file");
+        System.out.println("\tload: load tutoring record from file");
         System.out.println("\tq: Quit application");
         printDivider();
     }
@@ -79,6 +92,10 @@ public class TutoringOrganizerApp {
             displayStudentsNames();
         } else if (command.equals("l")) {
             displayAllLessons();
+        } else if (command.equals("save")) {
+            saveTutoringRecord();
+        } else if (command.equals("load")) {
+            loadTutoringRecord();
         } else {
             System.out.println("ERROR: Invalid input option. Please try again.");
             printDivider();
@@ -132,6 +149,31 @@ public class TutoringOrganizerApp {
                 displayLessons(s);
                 printDivider();
             }
+        }
+    }
+
+    // code based on the sample (JsonSeriallizationDemo)
+    // EFFECTS: saves the tutoring record to file
+    private void saveTutoringRecord() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(students);
+            jsonWriter.close();
+            System.out.println("Saved " + students.getName() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // code based on the sample (JsonSeriallizationDemo)
+    // MODIFIES: this
+    // EFFECTS: loads the tutoring record from file
+    private void loadTutoringRecord() {
+        try {
+            students = jsonReader.read();
+            System.out.println("Loaded " + students.getName() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
