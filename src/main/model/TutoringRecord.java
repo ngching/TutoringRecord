@@ -8,12 +8,14 @@ import org.json.JSONObject;
 import persistence.Writable;
 
 // Represents a list of students
-public class TutoringRecord implements Writable{
+public class TutoringRecord implements Writable {
+    private String name;
     private ArrayList<Student> students; // a list of students
 
     // EFFECTS: constructs an empty student list
-    public TutoringRecord() {
-        students = new ArrayList<>();
+    public TutoringRecord(String name) {
+        this.name = name;
+        this.students = new ArrayList<>();
     }
 
     // MODIFIES: this
@@ -29,19 +31,19 @@ public class TutoringRecord implements Writable{
         students.remove(student);
     }
 
-    // EFFECTS: returns true if the list is empty, false otherwise
+    // EFFECTS: returns true if the students list is empty, false otherwise
     public boolean isEmpty() {
         return students.isEmpty();
     }
 
-    // EFFECTS: returns the size of the list
+    // EFFECTS: returns the size of the students
     public int getSize() {
         return students.size();
     }
 
     // REQUIRES: index >= 0 && index <= ( getSize() - 1 )
-    // EFFECTS: returns the student with the given 0-based index from tutoring
-    // timetable
+    // EFFECTS: returns the student with the given 0-based index from the students
+    // list
     public Student get(int index) {
         return students.get(index);
     }
@@ -69,6 +71,11 @@ public class TutoringRecord implements Writable{
             lessons.addAll(s.getLessons());
         }
         return lessons;
+    }
+
+    // EFFECTS: returns name
+    public String getName() {
+        return ""; // stub
     }
 
     // EFFECTS: converts the data (in tutoring record) into a JSON object
