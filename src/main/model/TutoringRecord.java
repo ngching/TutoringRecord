@@ -75,17 +75,26 @@ public class TutoringRecord implements Writable {
 
     // EFFECTS: returns name
     public String getName() {
-        return ""; // stub
+        return name;
     }
 
     // EFFECTS: converts the data (in tutoring record) into a JSON object
     @Override
     public JSONObject toJson() {
-        return new JSONObject(); // stub
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("students", studentsToJson());
+        return json;
     }
 
     // EFFECTS: returns students as a JSON array
     private JSONArray studentsToJson() {
-        return new JSONArray(); // stub
+        JSONArray jsonStudents = new JSONArray();
+
+        for (Student s : students) {
+            jsonStudents.put(s.toJson());
+        }
+
+        return jsonStudents;
     }
 }

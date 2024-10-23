@@ -54,6 +54,11 @@ public class Lesson implements Writable {
     // EFFECTS: converts the data (in lesson) into a JSON object
     @Override
     public JSONObject toJson() {
-        return new JSONObject(); // stub
+        JSONObject jsonLesson = new JSONObject();
+        jsonLesson.put("starting time", starting);
+        jsonLesson.put("ending time", ending);
+        jsonLesson.put("subject", subject);
+        jsonLesson.put("payment status", paymentStatus);
+        return jsonLesson;
     }
 }

@@ -66,11 +66,23 @@ public class Student implements Writable {
     // EFFECTS: converts the data (in student) into a JSON object
     @Override
     public JSONObject toJson() {
-        return new JSONObject(); // stub
+        JSONObject jsonStudent = new JSONObject();
+        jsonStudent.put("name", name);
+        jsonStudent.put("gender (male?)", isMale);
+        jsonStudent.put("current grade", grade);
+        jsonStudent.put("subject(s)", subjects);
+        jsonStudent.put("lessons", lessonsToJson());
+        return jsonStudent;
     }
 
     // EFFECTS: returns lessons as a JSON array
     private JSONArray lessonsToJson() {
-        return new JSONArray(); // stub
+        JSONArray jsonLessons = new JSONArray();
+
+        for (Lesson l : lessons) {
+            jsonLessons.put(l.toJson());
+        }
+
+        return jsonLessons;
     }
 }
