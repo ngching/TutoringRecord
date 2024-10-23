@@ -8,17 +8,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class TutoringTimetableTest {
+public class TutoringRecordTest {
     private TutoringRecord testStudents;
     private Student testStudent1;
     private Student testStudent2;
     private Lesson testLesson1;
     private Lesson testLesson2;
     private Lesson testLesson3;
-    
+
     @BeforeEach
     void runBefore() {
-        testStudents = new TutoringRecord();
+        testStudents = new TutoringRecord("Tutoring Record Test");
 
         testStudent1 = new Student("Peter", true, 10, "math, phys");
         testStudent2 = new Student("Amy", false, 12, "biol");
@@ -70,7 +70,7 @@ public class TutoringTimetableTest {
         testStudents.addStudent(testStudent1);
         testStudents.addStudent(testStudent2);
         assertEquals(2, testStudents.getSize());
-        
+
         testStudents.removeStudent(testStudent1);
         testStudents.removeStudent(testStudent2);
         assertTrue(testStudents.isEmpty());

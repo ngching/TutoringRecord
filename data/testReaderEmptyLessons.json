@@ -1,0 +1,19 @@
+{
+    "name": "Tutoring Record With No Lessons",
+    "students": [
+        {
+            "gender (male?)": false,
+            "current grade": 11,
+            "name": "Ashley",
+            "subject(s)": "econ",
+            "lessons": []
+        },
+        {
+            "gender (male?)": true,
+            "current grade": 3,
+            "name": "John",
+            "subject(s)": "english",
+            "lessons": []
+        }
+    ]
+}

@@ -21,9 +21,9 @@ public class LessonTest {
 
     @Test
     void testConstructor() {
-        assertEquals(testStarting,testLesson.getStarting());
-        assertEquals(testEnding,testLesson.getEnding());
-        assertEquals("math",testLesson.getSubject());
+        assertEquals(testStarting, testLesson.getStarting());
+        assertEquals(testEnding, testLesson.getEnding());
+        assertEquals("math", testLesson.getSubject());
         assertFalse(testLesson.getPaymentStatus());
     }
 

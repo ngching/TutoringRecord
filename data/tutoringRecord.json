@@ -1,0 +1,37 @@
+{
+    "name": "My Tutoring Record",
+    "students": [
+        {
+            "gender (male?)": true,
+            "current grade": 21,
+            "name": "math",
+            "subject(s)": "math",
+            "lessons": [
+                {
+                    "starting time": "2020-10-10T01:00",
+                    "subject": "math",
+                    "ending time": "2020-10-10T02:00",
+                    "payment status": false
+                },
+                {
+                    "starting time": "2020-01-01T02:02",
+                    "subject": "mfad",
+                    "ending time": "2020-01-01T02:02",
+                    "payment status": true
+                }
+            ]
+        },
+        {
+            "gender (male?)": false,
+            "current grade": 9,
+            "name": "phy",
+            "subject(s)": "phy",
+            "lessons": [{
+                "starting time": "2021-01-01T02:02",
+                "subject": "amh",
+                "ending time": "2021-01-01T03:03",
+                "payment status": true
+            }]
+        }
+    ]
+}

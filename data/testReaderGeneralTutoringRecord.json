@@ -1,0 +1,39 @@
+{
+    "name": "General Tutoring Record",
+    "students": [
+        {
+            "gender (male?)": false,
+            "current grade": 7,
+            "name": "Sarah",
+            "subject(s)": "music",
+            "lessons": [
+                {
+                    "starting time": "2023-11-30T16:00",
+                    "subject": "music",
+                    "ending time": "2023-11-30T17:00",
+                    "payment status": true
+                },
+                {
+                    "starting time": "2023-12-02T16:00",
+                    "subject": "music",
+                    "ending time": "2023-12-02T17:00",
+                    "payment status": true
+                }
+            ]
+        },
+        {
+            "gender (male?)": true,
+            "current grade": 10,
+            "name": "David",
+            "subject(s)": "english",
+            "lessons": [
+                {
+                    "starting time": "2024-03-03T14:30",
+                    "subject": "english",
+                    "ending time": "2024-03-03T15:55",
+                    "payment status": false
+                }
+            ]
+        }
+    ]
+}
