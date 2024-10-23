@@ -2,12 +2,17 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a list of students
-public class TutoringTimetable {
+public class TutoringRecord implements Writable{
     private ArrayList<Student> students; // a list of students
 
     // EFFECTS: constructs an empty student list
-    public TutoringTimetable() {
+    public TutoringRecord() {
         students = new ArrayList<>();
     }
 
@@ -64,5 +69,16 @@ public class TutoringTimetable {
             lessons.addAll(s.getLessons());
         }
         return lessons;
+    }
+
+    // EFFECTS: converts the data (in tutoring record) into a JSON object
+    @Override
+    public JSONObject toJson() {
+        return new JSONObject(); // stub
+    }
+
+    // EFFECTS: returns students as a JSON array
+    private JSONArray studentsToJson() {
+        return new JSONArray(); // stub
     }
 }

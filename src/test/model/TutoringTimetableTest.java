@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class TutoringTimetableTest {
-    private TutoringTimetable testStudents;
+    private TutoringRecord testStudents;
     private Student testStudent1;
     private Student testStudent2;
     private Lesson testLesson1;
@@ -18,7 +18,7 @@ public class TutoringTimetableTest {
     
     @BeforeEach
     void runBefore() {
-        testStudents = new TutoringTimetable();
+        testStudents = new TutoringRecord();
 
         testStudent1 = new Student("Peter", true, 10, "math, phys");
         testStudent2 = new Student("Amy", false, 12, "biol");

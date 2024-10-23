@@ -2,9 +2,13 @@ package model;
 
 import java.time.LocalDateTime;
 
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a lesson with the selected student including the starting time, ending time,
 // the subject taught in the lesson, and the payment status of the lesson
-public class Lesson {
+public class Lesson implements Writable {
     private LocalDateTime starting; // the starting time of the lesson
     private LocalDateTime ending; // the ending time of the lesson
     private String subject; // the subject taught in the lesson
@@ -45,5 +49,11 @@ public class Lesson {
 
     public boolean getPaymentStatus() {
         return paymentStatus;
+    }
+
+    // EFFECTS: converts the data (in lesson) into a JSON object
+    @Override
+    public JSONObject toJson() {
+        return new JSONObject(); // stub
     }
 }

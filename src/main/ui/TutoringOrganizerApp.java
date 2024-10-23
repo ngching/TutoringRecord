@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 import model.Lesson;
 import model.Student;
-import model.TutoringTimetable;
+import model.TutoringRecord;
 
 // A tutoring organizer appliation that allows users to record their students and their tutoring
 // hours with each students
 public class TutoringOrganizerApp {
 
     private Student selectedStudent;
-    private TutoringTimetable students;
+    private TutoringRecord students;
     private Scanner input;
 
     // EFFECTS: runs the tutoring organizer application
@@ -54,7 +54,7 @@ public class TutoringOrganizerApp {
     // EFFECTS: initializes the applcation with starting values (empty list of
     // students)
     private void init() {
-        this.students = new TutoringTimetable();
+        this.students = new TutoringRecord();
         this.selectedStudent = null;
         this.input = new Scanner(System.in);
     }

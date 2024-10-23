@@ -2,10 +2,15 @@ package model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 // Represents a student with name, gender (where true represents male, and false represents female),
 // current grade (in the range of 1-12 inclusively representing grade 1-12), subject(s) needed to
 // tutoring in, and a list of past lessons with the student
-public class Student {
+public class Student implements Writable {
     private String name; // student name
     private boolean isMale; // student gender (is male or not?)
     private int grade; // current grade of student
@@ -56,5 +61,16 @@ public class Student {
 
     public ArrayList<Lesson> getLessons() {
         return lessons;
+    }
+
+    // EFFECTS: converts the data (in student) into a JSON object
+    @Override
+    public JSONObject toJson() {
+        return new JSONObject(); // stub
+    }
+
+    // EFFECTS: returns lessons as a JSON array
+    private JSONArray lessonsToJson() {
+        return new JSONArray(); // stub
     }
 }
