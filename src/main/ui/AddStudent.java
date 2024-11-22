@@ -3,6 +3,7 @@ package ui;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 
 import javax.swing.*;
 
@@ -46,7 +47,7 @@ public class AddStudent extends JPanel implements ActionListener {
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel heading = new JLabel("Please enter the details of the student:", JLabel.LEFT);
-        heading.setFont(new Font("Serif", Font.PLAIN, 25));
+        heading.setFont(new Font("Serif", Font.PLAIN, 20));
         panel.add(heading);
 
         return panel;
@@ -183,8 +184,8 @@ public class AddStudent extends JPanel implements ActionListener {
         String grade = gradeTextBox.getText();
         String subject = subjectTextBox.getText();
 
-        gender.toLowerCase();
-        boolean isMale = gender.equals("male");
+        Locale english = Locale.forLanguageTag("en");
+        boolean isMale = gender.toLowerCase(english).equals("male");
         int gradeInt = Integer.parseInt(grade);
 
         Student s = new Student(name, isMale, gradeInt, subject);

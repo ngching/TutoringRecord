@@ -49,7 +49,7 @@ public class AddLesson extends JPanel implements ActionListener {
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel heading = new JLabel("Please enter the details of the lesson:", JLabel.LEFT);
-        heading.setFont(new Font("Serif", Font.PLAIN, 25));
+        heading.setFont(new Font("Serif", Font.PLAIN, 20));
         panel.add(heading);
 
         return panel;
