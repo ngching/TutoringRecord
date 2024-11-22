@@ -22,3 +22,13 @@ As a part-time tutor who work with several students at the same time, I find it 
 - As a user, I want to be able to select a student in my record, and view the student's tutoring record (past lessons) in detail
 - As a user, I want to have the option to save my tutoring record to file on the main menu
 - As a user, I want to have the option to load my tutoring record from file on the main menu
+
+## Instructions for End User
+
+*How* users could interact with the GUI of this application:
+- You can add students to the tutoring record by clicking the button "Add a student", which brings you to another screen to entering some information about the student
+- You can generate the first required action related to the user story "adding multiple students to a tutoring record", which is removing a student from the tutoring record by clicking the button "View all students", which brings you to another screen displaying all students names. Then, you could select a student and click on the button "Remove" to remove the selected student
+- You can generate the second required action related to the user story "adding multiple students to a tutoring record", which is marking a student's lesson as paid/unpaid, by being in the screen where displaying all informations (including lessons (if any)) of the selected student. Then, select the lesson wanted to be marked as paid/unpaid and press the button "Mark Lesson As Paid" / "Mark Lesson As Unpaid" to mark that selected lesson of the selected student as paid/unpaid.
+- You can locate my visual component by starting the application and having the splash screen with an image showing "Loading..." and some symbols
+- You can save the state of my application by clicking the button "Save the record"
+- You can reload the state of my application by clicking the button "Load the record"
