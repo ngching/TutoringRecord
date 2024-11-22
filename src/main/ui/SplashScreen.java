@@ -2,22 +2,19 @@ package ui;
 
 import java.awt.*;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JWindow;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class SplashScreen extends Frame {
     private JWindow window;
 
-    // EFFECTS: create a splash screen when starting the application
     public SplashScreen() {
         window = new JWindow();
+
+        window.getContentPane().add(getJLabelImage());
+
         window.setSize(400, 300);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
-        window.getContentPane().add(getJLabelImage());
         autoClose();
     }
 
