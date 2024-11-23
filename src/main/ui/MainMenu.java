@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import model.TutoringRecord;
 import persistence.JsonReader;
@@ -29,21 +30,41 @@ public class MainMenu extends JPanel implements ActionListener {
     // application
     public MainMenu(JPanel mainPanel, TutoringRecord tr) {
         super();
-        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        setLayout(new BorderLayout(0, 20));
         setBackground(Color.LIGHT_GRAY);
         this.mainP = mainPanel;
         cl = (CardLayout) mainPanel.getLayout();
         this.record = tr;
 
-        JPanel panel = setupPanel();
-        add(panel);
+        JPanel title = addTitle();
+        add(title, BorderLayout.NORTH);
+
+        JPanel image = addImage();
+        add(image, BorderLayout.CENTER);
+
+        JPanel panel = setupButton();
+        add(panel, BorderLayout.SOUTH);
+    }
+
+    // EFFECTS: return a panel with a title
+    public JPanel addTitle() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1, 0, 0, 0));
+        panel.setBorder(new EmptyBorder(30, 10, 0, 10));
+        panel.setBackground(Color.LIGHT_GRAY);
+
+        JLabel title = new JLabel("Welcome!", JLabel.CENTER);
+        title.setFont(new Font("Serif", Font.BOLD, 33));
+        panel.add(title);
+
+        return panel;
     }
 
     // EFFECTS: set up a GridLayout panel
-    public JPanel setupPanel() {
+    public JPanel setupButton() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 0, 0, 30));
-        panel.setMaximumSize(new Dimension(300, 400));
+        panel.setLayout(new GridLayout(4, 0, 0, 10));
+        panel.setBorder(new EmptyBorder(0, 150, 10, 150));
         panel.setBackground(Color.LIGHT_GRAY);
 
         addComponent(panel);
@@ -52,9 +73,6 @@ public class MainMenu extends JPanel implements ActionListener {
 
     // EFFECTS: add different components to the given panel
     public void addComponent(Container pane) {
-        JPanel title = addTitle();
-        pane.add(title);
-
         addStudentButton = addButton();
         pane.add(addStudentButton);
 
@@ -68,18 +86,6 @@ public class MainMenu extends JPanel implements ActionListener {
         pane.add(loadButton);
     }
 
-    // EFFECTS: return a panel with a title
-    public JPanel addTitle() {
-        JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 17));
-        panel.setBackground(Color.LIGHT_GRAY);
-
-        JLabel title = new JLabel("Welcome!", JLabel.CENTER);
-        title.setFont(new Font("Serif", Font.BOLD, 33));
-        panel.add(title);
-
-        return panel;
-    }
-
     // EFFECTS: return a button to add student
     public Button addButton() {
         Button button = new Button("Add a student");
@@ -88,7 +94,7 @@ public class MainMenu extends JPanel implements ActionListener {
         return button;
     }
 
-    // EFFECTS: return  a button to view students
+    // EFFECTS: return a button to view students
     public Button viewButton() {
         Button button = new Button("View all students");
         button.setActionCommand("viewStudents");
@@ -102,6 +108,16 @@ public class MainMenu extends JPanel implements ActionListener {
         button.setActionCommand("saveData");
         button.addActionListener(this);
         return button;
+    }
+
+    // EFFECTS: return a panel with an image
+    public JPanel addImage() {
+        JPanel panel = new JPanel();
+        panel.setBackground(Color.LIGHT_GRAY);
+        Icon icon = new ImageIcon("assets/main.png");
+        JLabel label = new JLabel(icon, SwingConstants.CENTER);
+        panel.add(label);
+        return panel;
     }
 
     // EFFECTS: return a button to load the record from json file
