@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.util.Locale;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 import model.Student;
 import model.TutoringRecord;
@@ -56,13 +57,14 @@ public class AddStudent extends JPanel implements ActionListener {
     // EFFECTS: return a panel including all the text fields to input information
     public JPanel addComponent() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 0, 5, 20));
+        panel.setLayout(new GridLayout(4, 0, 5, 50));
+        panel.setBorder(new EmptyBorder(30, 120, 30, 30));
         panel.setBackground(Color.LIGHT_GRAY);
 
-        panel.add(addName());
-        panel.add(addGender());
-        panel.add(addGrade());
-        panel.add(addSubject());
+        panel.add(addName(), LEFT_ALIGNMENT);
+        panel.add(addGender(), LEFT_ALIGNMENT);
+        panel.add(addGrade(), LEFT_ALIGNMENT);
+        panel.add(addSubject(), LEFT_ALIGNMENT);
 
         return panel;
     }
@@ -71,7 +73,7 @@ public class AddStudent extends JPanel implements ActionListener {
     // EFFECTS: return a panel including a text field for name
     public JPanel addName() {
         JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER, 30, 0));
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel name = new JLabel("Name: ");
@@ -88,14 +90,14 @@ public class AddStudent extends JPanel implements ActionListener {
     // EFFECTS: return a panel including a text field for gender
     public JPanel addGender() {
         JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel gender = new JLabel("Gender (male? female?): ");
         gender.setFont(new Font(null));
         panel.add(gender);
 
-        genderTextBox = new JTextField(20);
+        genderTextBox = new JTextField(16);
         panel.add(genderTextBox);
 
         return panel;
@@ -105,14 +107,14 @@ public class AddStudent extends JPanel implements ActionListener {
     // EFFECTS: return a panel including a text field for grade
     public JPanel addGrade() {
         JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel grade = new JLabel("Current Grade (1-12?): ");
         grade.setFont(new Font(null));
         panel.add(grade);
 
-        gradeTextBox = new JTextField(20);
+        gradeTextBox = new JTextField(16);
         panel.add(gradeTextBox);
 
         return panel;
@@ -122,7 +124,7 @@ public class AddStudent extends JPanel implements ActionListener {
     // EFFECTS: return a panel including a text field for subject
     public JPanel addSubject() {
         JPanel panel = new JPanel();
-        panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT, 30, 0));
         panel.setBackground(Color.LIGHT_GRAY);
 
         JLabel subject = new JLabel("Tutoring Subject(s): ");
@@ -160,10 +162,14 @@ public class AddStudent extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("backToMainMenu")) {
             reset();
+            JPanel mainMenuPanel = new MainMenu(mainP, record);
+            mainP.add(mainMenuPanel, "MainMenu");
             cl.show(mainP, "MainMenu");
         } else if (e.getActionCommand().equals("addStudent")) {
             addStudentAction();
             reset();
+            JPanel mainMenuPanel = new MainMenu(mainP, record);
+            mainP.add(mainMenuPanel, "MainMenu");
             cl.show(mainP, "MainMenu");
         }
     }

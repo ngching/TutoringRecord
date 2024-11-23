@@ -108,6 +108,8 @@ public class StudentNames extends JPanel implements ActionListener {
     // EFFECTS: handle the action when different buttons are clicked
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("backToMainMenu")) {
+            JPanel mainMenuPanel = new MainMenu(mainP, record);
+            mainP.add(mainMenuPanel, "MainMenu");
             cl.show(mainP, "MainMenu");
         } else if (e.getActionCommand().equals("SelectStudent")) {
             selected = getSelectedStudent();

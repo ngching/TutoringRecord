@@ -80,7 +80,7 @@ public class MainMenu extends JPanel implements ActionListener {
         return panel;
     }
 
-    // EFFECTS: return a panel with a button to add student
+    // EFFECTS: return a button to add student
     public Button addButton() {
         Button button = new Button("Add a student");
         button.setActionCommand("addStudent");
@@ -88,7 +88,7 @@ public class MainMenu extends JPanel implements ActionListener {
         return button;
     }
 
-    // EFFECTS: return a panel with a button to view students
+    // EFFECTS: return  a button to view students
     public Button viewButton() {
         Button button = new Button("View all students");
         button.setActionCommand("viewStudents");
@@ -96,7 +96,7 @@ public class MainMenu extends JPanel implements ActionListener {
         return button;
     }
 
-    // EFFECTS: return a panel with a button to save the record to json file
+    // EFFECTS: return a button to save the record to json file
     public Button saveButton() {
         Button button = new Button("Save the record");
         button.setActionCommand("saveData");
@@ -104,7 +104,7 @@ public class MainMenu extends JPanel implements ActionListener {
         return button;
     }
 
-    // EFFECTS: return a panel with a button to load the record from json file
+    // EFFECTS: return a button to load the record from json file
     public Button loadButton() {
         Button button = new Button("Load the record");
         button.setActionCommand("loadData");
@@ -120,10 +120,12 @@ public class MainMenu extends JPanel implements ActionListener {
             JPanel addStuPanel = new AddStudent(mainP, record);
             mainP.add(addStuPanel, "AddStudent");
             cl.show(mainP, "AddStudent");
+            addStudentButton.setVisible(false);
         } else if (e.getActionCommand().equals("viewStudents")) {
             JPanel viewNamePanel = new StudentNames(mainP, record);
             mainP.add(viewNamePanel, "ViewStudentNames");
             cl.show(mainP, "ViewStudentNames");
+            viewStudentsButton.setVisible(false);
         } else if (e.getActionCommand().equals("saveData")) {
             saveTutoringRecord();
         } else if (e.getActionCommand().equals("loadData")) {
