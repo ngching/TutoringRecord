@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.json.JSONObject;
 
@@ -27,12 +28,18 @@ public class Lesson implements Writable {
     // EFFECTS: marks the lesson as paid
     public void markAsPaid() {
         this.paymentStatus = true;
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        String date = starting.format(formatter).substring(0, 10);
+        EventLog.getInstance().logEvent(new Event("Marked as paid: lesson on " + date));
     }
 
     // MODIFIES: this
     // EFFECTS: marks the lesson as unpaid
     public void markAsUnpaid() {
         this.paymentStatus = false;
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        String date = starting.format(formatter).substring(0, 10);
+        EventLog.getInstance().logEvent(new Event("Marked as unpaid: lesson on " + date));
     }
 
     public LocalDateTime getStarting() {

@@ -32,3 +32,22 @@ As a part-time tutor who work with several students at the same time, I find it 
 - You can locate my visual component by starting the application and having the splash screen with an image showing "Loading..." and some symbols
 - You can save the state of my application by clicking the button "Save the record"
 - You can reload the state of my application by clicking the button "Load the record"
+
+## Phase 4: Task 2
+
+A representative sample of the events that occur when running the program:
+```
+Event Log: 
+
+Wed Nov 27 10:23:02 PST 2024
+Added student: Mary
+
+Wed Nov 27 10:23:23 PST 2024
+Added lesson with Mary: on 2024-10-30
+
+Wed Nov 27 10:23:39 PST 2024
+Marked as paid: lesson on 2024-10-30
+
+Wed Nov 27 02:23:47 PST 2024
+Removed student: Mary
+```

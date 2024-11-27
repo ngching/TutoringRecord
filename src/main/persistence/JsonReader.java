@@ -14,7 +14,6 @@ import org.json.JSONObject;
 
 import model.Lesson;
 import model.Student;
-// import model.TutoringRecord;
 import model.TutoringRecord;
 
 // code reference to the sample (JsonSeriallizationDemo)

@@ -22,6 +22,7 @@ public class TutoringRecord implements Writable {
     // EFFECTS: adds the given student to tutoring timetable
     public void addStudent(Student student) {
         students.add(student);
+        EventLog.getInstance().logEvent(new Event("Added student: " + student.getName()));
     }
 
     // REQUIRES: students.contains(student) is true
@@ -29,6 +30,7 @@ public class TutoringRecord implements Writable {
     // EFFECTS: removes the given student from tutoring timetable
     public void removeStudent(Student student) {
         students.remove(student);
+        EventLog.getInstance().logEvent(new Event("Removed student: " + student.getName()));
     }
 
     // EFFECTS: returns true if the students list is empty, false otherwise

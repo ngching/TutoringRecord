@@ -1,5 +1,7 @@
 package model;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -32,6 +34,10 @@ public class Student implements Writable {
     // EFFECTS: adds the given lesson into the list of lessons of the student
     public void addLesson(Lesson lesson) {
         lessons.add(lesson);
+        LocalDateTime startTime = lesson.getStarting();
+        DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
+        String date = startTime.format(formatter).substring(0, 10);
+        EventLog.getInstance().logEvent(new Event("Added lesson with " + name + ": on " + date));
     }
 
     // EFFECTS: return a string showing if the student is a male or a female
