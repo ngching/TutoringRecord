@@ -48,6 +48,9 @@ Added lesson with Mary: on 2024-10-30
 Wed Nov 27 10:23:39 PST 2024
 Marked as paid: lesson on 2024-10-30
 
+Wed Nov 27 10:23:41 PST 2024
+Marked as unpaid: lesson on 2024-10-30
+
 Wed Nov 27 02:23:47 PST 2024
 Removed student: Mary
 ```
