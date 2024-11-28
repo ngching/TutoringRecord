@@ -12,7 +12,7 @@ import model.Student;
 import model.TutoringRecord;
 
 // Represents the panel of the application when displaying all the students names
-public class StudentNames extends JPanel implements ActionListener {
+public class StudentsNames extends JPanel implements ActionListener {
     private JPanel mainP;
     private CardLayout cl;
     private TutoringRecord record;
@@ -20,7 +20,7 @@ public class StudentNames extends JPanel implements ActionListener {
     private JList<String> nameList;
 
     // EFFECTS: construct a panel showing the names of all students in the record
-    public StudentNames(JPanel mainPanel, TutoringRecord tr) {
+    public StudentsNames(JPanel mainPanel, TutoringRecord tr) {
         super();
         setBackground(Color.LIGHT_GRAY);
         setLayout(new BorderLayout(10, 5));
@@ -119,7 +119,7 @@ public class StudentNames extends JPanel implements ActionListener {
         } else if (e.getActionCommand().equals("RemoveStudent")) {
             selected = getSelectedStudent();
             record.removeStudent(selected);
-            JPanel viewNamePanel = new StudentNames(mainP, record);
+            JPanel viewNamePanel = new StudentsNames(mainP, record);
             mainP.add(viewNamePanel, "ViewStudentNames");
             cl.show(mainP, "ViewStudentNames");
         }

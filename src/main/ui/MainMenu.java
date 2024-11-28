@@ -138,7 +138,7 @@ public class MainMenu extends JPanel implements ActionListener {
             cl.show(mainP, "AddStudent");
             addStudentButton.setVisible(false);
         } else if (e.getActionCommand().equals("viewStudents")) {
-            JPanel viewNamePanel = new StudentNames(mainP, record);
+            JPanel viewNamePanel = new StudentsNames(mainP, record);
             mainP.add(viewNamePanel, "ViewStudentNames");
             cl.show(mainP, "ViewStudentNames");
             viewStudentsButton.setVisible(false);

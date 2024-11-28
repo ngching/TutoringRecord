@@ -54,3 +54,10 @@ Marked as unpaid: lesson on 2024-10-30
 Wed Nov 27 02:23:47 PST 2024
 Removed student: Mary
 ```
+
+## Phase 4: Task 3
+
+Reflection on the design:
+If I had more time to work on the project, I would refactor the GUI by introducing an abstract class. The classes `AddStudent` and `AddLesson` have similar method behaviours, which focus on creating a panel that includes several text fields to add a student to lesson to the record. Currently, there are several duplicate codes in these two classes. For instance, both classes extend JPanel and implement ActionListener, share similar fields (a JPanel mainP, a CardLayout cl, a Student, and some JTextFields). They also includes similar visual components and same buttons which have slightly different actions. With the similarities in structures and methods between the two classes, these generic concepts could be refactored into an abstract class.
+
+This refactoring eliminates redundancy and enhances code readability, making the code easier to understand and maintain. In addition, the UML class diagram would be updated to reflect this new structure, which results in a clearer diagram to show the relationships between classes in this application.
